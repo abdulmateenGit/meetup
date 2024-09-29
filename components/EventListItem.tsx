@@ -7,7 +7,7 @@ import { Link } from 'expo-router';
 export default function EventListItem({ event }) {
     return (
         <Link href={`/${event.id}`} asChild>
-            <Pressable className='p-3 gap-3 border-b-2 border-gray-100 pb-3'>
+            <Pressable className='gap-3 border-b-2 border-gray-100 p-3 pb-3'>
                 <View className='flex-row'>
                     <View className='flex-1 gap-2'>
                         <Text className='text-lg font-semibold uppercase text-amber-800'>
@@ -26,7 +26,7 @@ export default function EventListItem({ event }) {
                     />
                 </View>
                 <View className='flex-row gap-3'>
-                    <Text className='text-gray-700 mr-auto'> 16 going </Text>
+                    <Text className='mr-auto text-gray-700'> 16 going </Text>
                     <Feather name="share" size={20} color="grey" />
                     <Feather name="bookmark" size={20} color="grey" />
                 </View>

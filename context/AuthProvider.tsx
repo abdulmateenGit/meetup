@@ -24,7 +24,11 @@ export default function AuthProvider({ children }) {
     if (!isReady) {
         return <ActivityIndicator />
     }
-    return <AuthContext.Provider value={{ session, user: session?.user, isAuthenticated: !!session?.user }}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider
+        value={{ session, user: session?.user, isAuthenticated: !!session?.user }}
+    >
+        {children}
+    </AuthContext.Provider>
 }
 
 export const useAuth = () => useContext(AuthContext);

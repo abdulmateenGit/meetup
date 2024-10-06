@@ -1,7 +1,7 @@
 import { Feather } from '@expo/vector-icons';
 import { Image, Text, View, Pressable } from 'react-native';
 import dayjs from 'dayjs';
-import { Link } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 
 
 export default function EventListItem({ event }) {

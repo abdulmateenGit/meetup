@@ -24,7 +24,7 @@ export default function CreateEvent() {
             .insert([{
                 title,
                 description,
-                date,
+                date: date.toISOString(),
                 user_id: user.id,
             },])
             .select()

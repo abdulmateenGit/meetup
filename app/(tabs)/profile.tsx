@@ -1,6 +1,7 @@
 import { Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Button, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, Button, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import Avatar from '~/components/Avatar';
 
 import { ScreenContent } from '~/components/ScreenContent';
 import { useAuth } from '~/context/AuthProvider';
@@ -88,6 +89,16 @@ export default function Profile() {
   return (
     <View className='flex-1 gap-3 bg-white p-5'>
       <Stack.Screen options={{ title: 'Profile' }} />
+      <View className='items-center'>
+        <Avatar
+          size={200}
+          url={avatarUrl}
+          onUpload={(url: string) => {
+            setAvatarUrl(url);
+            updateProfile({ username, website, avatar_url: url });
+          }}
+        />
+      </View>
 
       <TextInput
         editable={false}
@@ -128,7 +139,7 @@ export default function Profile() {
       </Pressable>
 
       <Button title='Sing out' onPress={() => supabase.auth.signOut()} />
-    </View>
+    </View >
   );
 }
 

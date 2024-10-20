@@ -38,10 +38,6 @@ export default function Events() {
     }
   }, [location]);
 
-  const fetchAllEvents = async () => {
-    const { data, error } = await supabase.from('events').select('*');
-    setEvents(data);
-  }
 
   const fetchNearbyEvents = async () => {
     if (!location) {
@@ -51,8 +47,7 @@ export default function Events() {
       lat: location.coords.latitude,
       long: location.coords.longitude,
     })
-    // console.log(JSON.stringify(data, null, 2))
-    // console.log(error)
+
     if (data) {
       setEvents(data)
     }
@@ -61,8 +56,6 @@ export default function Events() {
   return (
     <>
       <Stack.Screen options={{ title: 'Events' }} />
-      {/* Event list item*/}
-      {/* <EventListItem event={events[0]} /> */}
       <FlatList
         data={events}
         renderItem={({ item }) => <EventListItem event={item} />}
